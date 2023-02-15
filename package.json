@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=development ts-node ./src/app.ts",
-    "start": "npm run build && NODE_ENV=production node ./dist/app.js",
+    "start": "npm run build && NODE_ENV=production node ./dist/src/app.js",
     "test": "jest --clearCache && jest --detectOpenHandles"
   },
   "repository": {
