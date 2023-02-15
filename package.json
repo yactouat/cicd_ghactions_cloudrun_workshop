@@ -1,7 +1,7 @@
 {
-  "name": "node_app_template",
-  "version": "1.0.0",
-  "description": "typescript node app' template with tests",
+  "name": "cicd_ghactions_cloudrun_workshop",
+  "version": "0.0.1",
+  "description": "DevOps practices workshop using GitHub Actions and Google Cloud Run",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
