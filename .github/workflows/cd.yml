@@ -11,7 +11,7 @@ on:
 
 jobs:
   build-publish-deploy:
-    name: Build And Publish To GCP Artifact Registry
+    name: Build And Publish To GCP Artifact Registry + Deploy To Cloud Run
     runs-on: ubuntu-latest
     environment: live
     steps:
