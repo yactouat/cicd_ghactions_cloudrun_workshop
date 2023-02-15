@@ -1,13 +1,11 @@
 name: CD
 on:
   # this action will only run on each push to main, if you prefer continuous deployment
-  # push:
-  #   branches: ["main"]
-  # this action will only run if you create a release, if you prefer continuous delivery
-  release:
-    types: [created]
   push:
-    branches: ["step/5"]
+    branches: ["main"]
+  # this action will only run if you create a release, if you prefer continuous delivery
+  # release:
+  #   types: [created]
 
 jobs:
   build-publish-deploy:
