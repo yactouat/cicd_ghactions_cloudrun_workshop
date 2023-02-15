@@ -2,12 +2,12 @@
   "name": "cicd_ghactions_cloudrun_workshop",
   "version": "0.0.1",
   "description": "DevOps practices workshop using GitHub Actions and Google Cloud Run",
-  "main": "./dist/index.js",
+  "main": "./dist/app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "NODE_ENV=development ts-node ./src/index.ts",
-    "start": "npm run build && NODE_ENV=production node ./dist/index.js",
-    "test": "jest --clearCache && jest"
+    "dev": "NODE_ENV=development ts-node ./src/app.ts",
+    "start": "npm run build && NODE_ENV=production node ./dist/app.js",
+    "test": "jest --clearCache && jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,16 @@
   },
   "homepage": "https://github.com/yactouat/node_app_template#readme",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
+    "@types/supertest": "^2.0.12",
     "jest": "^29.4.3",
+    "supertest": "^6.3.3",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
