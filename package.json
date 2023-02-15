@@ -2,7 +2,7 @@
   "name": "cicd_ghactions_cloudrun_workshop",
   "version": "0.0.1",
   "description": "DevOps practices workshop using GitHub Actions and Google Cloud Run",
-  "main": "./dist/app.js",
+  "main": "./dist/src/app.js",
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=development ts-node ./src/app.ts",
