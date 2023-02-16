@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@v3
       - name: run integration tests
         run: |
-          docker compose -f ci.docker-compose.yml up -d \
+          docker compose up -d \
           && sleep 5 \
           && docker compose run app bash -c "./node_modules/.bin/jest --clearCache && ./node_modules/.bin/jest"
