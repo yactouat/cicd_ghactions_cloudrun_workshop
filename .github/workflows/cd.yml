@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@master
 
       # Build and publish the Docker image to the GCP Artifact Registry
-      - name: Login to GAR
+      - name: Login to GAR for testing
         uses: docker/login-action@v2
         with:
           registry: europe-west1-docker.pkg.dev
