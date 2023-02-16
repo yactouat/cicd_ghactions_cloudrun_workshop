@@ -2,7 +2,7 @@ name: CD
 on:
   # this action will only run on each push to main, if you prefer continuous deployment
   push:
-    branches: ["main"]
+    branches: ["main", "step/8"]
   # this action will only run if you create a release, if you prefer continuous delivery
   # release:
   #   types: [created]
@@ -45,6 +45,11 @@ jobs:
           image: "${{ secrets.GCP_ARTIFACT_REPO }}/workshop:${{ github.sha }}"
           env_vars: |
             NODE_ENV=production
+            PGDATABASE=postgres
+            PGHOST=${{ secrets.PGHOST }}
+            PGPORT=5432
+            PGUSER=postgres
+            PGPASSWORD=${{ secrets.PGPASSWORD }}
           flags: "--port=8080"
           region: "europe-west1"
 
