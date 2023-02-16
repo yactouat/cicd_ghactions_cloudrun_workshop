@@ -40,7 +40,7 @@ jobs:
           credentials_json: "${{ secrets.CLOUD_RUN_DEPLOYER_SA_KEY }}"
 
       # not passing `--allow-unauthenticated` flag here because it is recommended to not let the CD pipeline take the responsibility of setting up authentication
-      - id: "deploy for the sake of testing"
+      - id: "deploy"
         uses: "google-github-actions/deploy-cloudrun@v1"
         with:
           service: "workshop"
