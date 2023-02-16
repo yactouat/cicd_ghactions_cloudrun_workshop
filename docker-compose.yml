@@ -5,26 +5,31 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - PGDATABASE=api
-      - PGHOST=pgsql
+      # - PGDATABASE=api
+      # - PGHOST=pgsql
+      # - PGPORT=5432
+      # - PGUSER=usr
+      # - PGPASSWORD=pwd
+      - PGDATABASE=postgres
+      - PGHOST=db.zeghdybyloctlxnahuln.supabase.co
       - PGPORT=5432
-      - PGUSER=usr
-      - PGPASSWORD=pwd
+      - PGUSER=postgres
+      - PGPASSWORD=WOW_SECRET_PASSWORD
     ports:
       - 8080:8080
     depends_on:
       - pgsql
 
   # ! to use for convenience in local dev mode, completely useless in a CI/CD pipeline
-  # pgadmin:
-  #   image: dpage/pgadmin4:6.19
-  #   restart: unless-stopped
-  #   environment:
-  #     PGADMIN_DEFAULT_PASSWORD: pwd
-  #     PGADMIN_DEFAULT_EMAIL: yacine.touati.pro@gmail.com
-  #     PGADMIN_LISTEN_PORT: 8080
-  #   ports:
-  #     - 8081:8080
+  pgadmin:
+    image: dpage/pgadmin4:6.20
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: pwd
+      PGADMIN_DEFAULT_EMAIL: yacine.touati@reboot-conseil.com
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - 8081:8080
 
   pgsql:
     image: postgres:15.1
