@@ -19,3 +19,4 @@ DevOps practices workshop using GitHub Actions and Google Cloud Run.
 ![GCP roles](./sa_permissions.webp)
 
 - once you have deployed your service using the GitHub action, you need to update it manually in order to explicitely allow for (billable) unauthenticated requests => `gcloud run deploy workshop --image=${{ secrets.GCP_ARTIFACT_REPO }}/workshop:SOME_TAG --allow-unauthenticated --region=europe-west1 --port=8080`
+- to run the tests with dockerized application stack (while it is up) => `docker compose run app bash -c "./node_modules/.bin/jest --clearCache && ./node_modules/.bin/jest`

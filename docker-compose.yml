@@ -5,16 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      # - PGDATABASE=api
-      # - PGHOST=pgsql
-      # - PGPORT=5432
-      # - PGUSER=usr
-      # - PGPASSWORD=pwd
-      - PGDATABASE=postgres
-      - PGHOST=WOW_DB_HOST
+      - PGDATABASE=api
+      - PGHOST=pgsql
       - PGPORT=5432
-      - PGUSER=postgres
-      - PGPASSWORD=WOW_SECRET_PASSWORD
+      - PGUSER=usr
+      - PGPASSWORD=pwd
     ports:
       - 8080:8080
     depends_on:

@@ -8,6 +8,13 @@ describe("GET /", () => {
     expect(response.body.data).toBeNull();
     expect(response.body.msg).toEqual("API is up");
   });
+
+  it("should return 200 OK and the right message", async () => {
+    const response = await request(app).get("/status");
+    expect(response.status).toEqual(200);
+    expect(response.body.data).toBeNull();
+    expect(response.body.msg).toEqual("API is available");
+  });
 });
 
 afterAll(() => {
