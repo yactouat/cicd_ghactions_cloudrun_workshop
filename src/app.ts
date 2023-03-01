@@ -5,7 +5,7 @@ const app = express();
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
-    msg: "API is uuuuuuuuuup",
+    msg: "API is up",
     data: null,
   });
 });
