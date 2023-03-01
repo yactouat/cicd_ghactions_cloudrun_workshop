@@ -19,5 +19,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm ci #cf. https://docs.npmjs.com/cli/v9/commands/npm-ci
       - run: npm run test
