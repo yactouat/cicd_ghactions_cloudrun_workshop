@@ -1,0 +1,42 @@
+name: CICD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: app' tests
+    steps:
+      - uses: actions/checkout@v3
+      - name: automated tests
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run test
+
+  build-publish:
+    needs: test
+    name: Build And Publish To GCP Artifact Registry
+    runs-on: ubuntu-latest
+    environment: live
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Build and publish the Docker image to the GCP Artifact Registry
+      - name: Login to GAR for testing
+        uses: docker/login-action@v2
+        with:
+          registry: europe-west1-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.CLOUD_RUN_DEPLOYER_SA_KEY }}
+      - id: docker-push-tagged
+        name: Tag Docker image and push to Google Artifact Registry
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: |
+            ${{ secrets.GCP_ARTIFACT_REPO }}/workshop:${{ github.sha }}
